@@ -15,7 +15,7 @@ export default function useIsSlotValidate(componentName: string, items: MParamLa
   const error = MPrinter(componentName ?? '组件').error;
 
   const isSlotValidate = () => {
-    const missSlotNames = [];
+    const missSlotNames: string[] = [];
     items.forEach(item => {
       if (item.isSlot && slots[item.param] === undefined) {
         missSlotNames.push(item.param);

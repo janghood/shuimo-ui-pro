@@ -13,17 +13,23 @@ export declare type MParamLabel = {
    * @type string
    * @default ''
    */
-  param: string;
+  param: string,
   /**
    * @description 参数label显示
    * @type string
    * @default ''
    */
-  label: string;
+  label: string,
+  /**
+   * @description 默认插槽类型
+   * @type 'text' | 'input'
+   * @default text
+   */
+  type?: 'text' | 'input',
   /**
    * @description 是否是插槽
    * @type boolean
    * @default false
    */
-  isSlot?: boolean;
+  isSlot?: boolean
 }

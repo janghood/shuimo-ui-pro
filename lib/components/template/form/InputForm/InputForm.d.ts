@@ -12,21 +12,6 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { MParamLabel } from "../../../../../types/common/MParamLabel";
+import { MFormPlusCommonProps } from "../FormPlus";
 
-export declare type MInputFormProps = {
-  /**
-   * @description data value
-   *              表单参数
-   * @type any
-   */
-  modelValue: any,
-  /**
-   * @description items
-   *              表单列表
-   * @type MParamLabel[]
-   * @default []
-   *
-   */
-  items: MParamLabel[]
-}
+export declare type MInputFormProps = MFormPlusCommonProps

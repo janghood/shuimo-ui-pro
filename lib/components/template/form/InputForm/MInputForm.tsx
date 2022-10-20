@@ -6,44 +6,30 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineComponent, ref } from "vue";
-import { props } from "./api";
-import { MForm, MFormItem, MInput } from "shuimo-ui";
-import useModelValue from "../../../../compositions/common/useModelValue";
-import useInputFormPropsValidate from "./componsitions/useInputFormPropsValidate";
-import useIsSlotValidate from "../../../../compositions/common/useIsSlotValidate";
+import { defineComponent, h } from "vue";
+import { props } from "../api";
+import { isEmpty } from "../../../../dependents/utils/tools";
+import MFormPlus from "../MFormPlus";
+import { MParamLabel } from "../../../../../types/common/MParamLabel";
 
 export default defineComponent({
   name: 'MInputForm',
   props,
-  setup(props, { slots }) {
-    const emptyDom = (<></>);
-    const { validateProps } = useInputFormPropsValidate(props);
-
-    if (!validateProps()) {
-      return emptyDom;
-    }
-
-    const { isSlotValidate } = useIsSlotValidate('MInputForm', props.items, slots);
-    if (!isSlotValidate()) {
-      return emptyDom;
-    }
-
-    const data = ref(props.modelValue);
-    useModelValue(data, props);
+  setup: function (props, { slots }) {
 
     return () => {
-      const items = props.items.map(item => {
-        return (
-          <MFormItem label={item.label}>
-            {item.isSlot ?
-              slots[item.param]({ data: data.value[item.param] }) :
-              <MInput v-model={data.value[item.param]}/>}
-          </MFormItem>
-        )
+      // 默认类型为input
+      const items = props.items?.map(item => {
+        if (isEmpty(item.type) && item.isSlot !== true) {
+          return { ...item, type: 'input' } as MParamLabel;
+        }
+        return item;
       })
 
-      return (<MForm>{items}</MForm>)
+      return h(MFormPlus, {
+        ...props,
+        items
+      }, slots);
     }
   }
 })

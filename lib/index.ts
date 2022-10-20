@@ -9,13 +9,14 @@
 
 import { App, Component } from 'vue';
 import MInputForm from "./components/template/form/InputForm/MInputForm";
+import MFormPlus from "./components/template/form/MFormPlus";
 
 const components: Record<any, Component> = {
-  MInputForm
+  MFormPlus, MInputForm
 }
 
 export {
-  MInputForm
+  MFormPlus, MInputForm
 }
 
 export function createMUIPro() {

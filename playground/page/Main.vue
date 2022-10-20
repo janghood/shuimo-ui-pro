@@ -5,6 +5,11 @@
       <span>{{ data }}</span>
     </template>
   </MInputForm>
+  <MFormPlus v-model="modelValue" :items="paramList">
+    <template #name="{data}">
+      <span>{{ data }}</span>
+    </template>
+  </MFormPlus>
 
 </template>
 
@@ -18,6 +23,7 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import { ref } from "vue";
+import MFormPlus from "../../lib/components/template/form/MFormPlus";
 
 const paramList = [
   { param: 'id', label: 'id' },

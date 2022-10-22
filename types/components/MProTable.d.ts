@@ -6,39 +6,6 @@
  *
  * Hello, humor
  */
-export declare type Column = {
-  /**
-   * @description 列宽
-   * @type string
-   * @default ''
-   */
-  width?: string
-  /**
-   * @description 列param
-   * @type string
-   * @default ''
-   */
-  param: string
-  /**
-   * @description 列label
-   * @type string
-   * @default ''
-   */
-  label: string
-  /**
-   * @description 自定义内容渲染,支持VNode
-   * @type function
-   * @default (value: any, row: any) => void
-   */
-  customRender?: (value: any, row: any) => void
-  /**
-   * @description 是否开启列插槽功能
-   * @type boolean
-   * @default false
-   */
-  isSlot?: boolean
-}
-
 export declare type Pagination = {
   /**
    * @description 当前页

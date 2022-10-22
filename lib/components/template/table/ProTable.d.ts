@@ -13,7 +13,8 @@
  * Hello, humor
  */
 
-import { Pagination, Column } from '../../../../types/components/MProTable';
+import { Pagination } from '../../../../types/components/MProTable';
+import { MParamLabel } from "../../../../types/common/MParamLabel";
 
 export declare type MProTableProps = {
   /**
@@ -26,10 +27,10 @@ export declare type MProTableProps = {
   /**
    * @description 表格列
    *
-   * @type Column[]
+   * @type MParamLabel[]
    * @default []
    */
-  columns: Column[]
+  columns: MParamLabel[]
   /**
    * @description 表格高度
    * @type string

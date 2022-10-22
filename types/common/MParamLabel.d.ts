@@ -1,5 +1,5 @@
 /**
- * @description
+ * @description 通用的参数类型
  * @author 阿怪
  * @date 2022/10/21 02:29
  * @version v1.0.0
@@ -31,5 +31,17 @@ export declare type MParamLabel = {
    * @type boolean
    * @default false
    */
-  isSlot?: boolean
+  isSlot?: boolean,
+  /**
+   * @description 自定义内容渲染,支持VNode
+   * @type function
+   * @default (value: any, row: any) => void
+   */
+  customRender?: (value: any, row: any) => void,
+/**
+   * @description 参数
+   * @type string
+   * @default ''
+   */
+  props?: Record<string, any>
 }

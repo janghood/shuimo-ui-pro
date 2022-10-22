@@ -8,11 +8,12 @@
  */
 import { WCOPO, WPropType } from "shuimo-ui/lib/dependents/_types";
 import { MProTableProps}  from './ProTable';
-import { Column, Pagination } from '../../../../types/components/MProTable';
+import { MParamLabel } from "../../../../types/common/MParamLabel";
+import { Pagination } from '../../../../types/components/MProTable';
 
 export const props: WCOPO<MProTableProps> = {
   data: { type: Array as WPropType<any[]>, required: true },
-  columns: { type: Array as WPropType<Column[]>, required: true },
+  columns: { type: Array as WPropType<MParamLabel[]>, required: true },
   pagination: { type: Object as WPropType<Pagination>, required: false, default: undefined },
   height: { type: String, required: false, default: '' }
 }

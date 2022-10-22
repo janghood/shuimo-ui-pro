@@ -16,9 +16,9 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import { Column } from '../../types/components/MProTable';
+import { MParamLabel } from "../../types/common/MParamLabel";
 
-const columns: Column[] = [
+const columns: MParamLabel[] = [
   { param: 'id', label: 'id' },
   { param: 'name', label: '名称', isSlot: true }
 ]

@@ -8,7 +8,7 @@
  */
 import { mount } from "@vue/test-utils";
 import { MForm, MInput } from "shuimo-ui";
-import { describe, test, expect, vi } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import MInputForm from "../../../../lib/components/template/form/InputForm/MInputForm";
 import { paramList, paramListWithSlot } from "../../../common/data/paramList";
 import { h, ref } from 'vue';
@@ -97,7 +97,7 @@ describe('inputForm组件', () => {
         items: paramListWithSlot
       },
       slots: {
-        name: (info) => h('div', {}, info.data)
+        name: (info: { data: any }) => h('div', {}, info.data)
       }
     })
     expect(wrapper.html()).toMatchInlineSnapshot(`

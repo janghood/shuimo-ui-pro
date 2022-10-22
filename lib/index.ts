@@ -10,14 +10,14 @@
 import { App, Component } from 'vue';
 import MInputForm from "./components/template/form/InputForm/MInputForm";
 import MFormPlus from "./components/template/form/MFormPlus";
-import MProTable from './components/template/table/MProTable';
+import MTablePlus from './components/template/table/MTablePlus';
 
 const components: Record<any, Component> = {
-  MFormPlus, MInputForm, MProTable
+  MFormPlus, MInputForm, MTablePlus
 }
 
 export {
-  MFormPlus, MInputForm, MProTable
+  MFormPlus, MInputForm, MTablePlus
 }
 
 export function createMUIPro() {

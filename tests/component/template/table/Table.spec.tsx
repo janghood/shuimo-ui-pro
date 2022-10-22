@@ -10,14 +10,14 @@
 
 import { mount } from "@vue/test-utils";
 import { describe, test, expect, vi } from 'vitest';
-import MProTable from '../../../../lib/components/template/table/MProTable';
+import MTablePlus from '../../../../lib/components/template/table/MTablePlus';
 import { MParamLabel } from "../../../../types/common/MParamLabel";
 
-describe('MProTable组件', () => {
+describe('MTablePlus组件', () => {
   test('单列表', async () => {
     const wrapper = mount({
       render() {
-        return <MProTable data={[]} columns={[]}/>
+        return <MTablePlus data={[]} columns={[]}/>
       }
     })
     expect(wrapper.find('.m-table').exists()).toBeTruthy()
@@ -36,7 +36,7 @@ describe('MProTable组件', () => {
     ]
     const wrapper = mount({
       render() {
-        return <MProTable data={data} columns={columns} />
+        return <MTablePlus data={data} columns={columns} />
       }
     })
     expect(wrapper.findAll('.m-tbody .m-tr').length).toBe(2) // 包含头部行
@@ -54,7 +54,7 @@ describe('MProTable组件', () => {
     ]
     const wrapper = mount({
       render() {
-        return <MProTable data={data} columns={columns} />
+        return <MTablePlus data={data} columns={columns} />
       }
     })
     expect(wrapper.html()).toMatchInlineSnapshot(`
@@ -101,11 +101,11 @@ describe('MProTable组件', () => {
     ]
     const wrapper = mount({
       render() {
-        return <MProTable data={data} columns={columns}>
+        return <MTablePlus data={data} columns={columns}>
           {{
             name: ({ data, index }: any) => data.name + index
           }}
-        </MProTable>
+        </MTablePlus>
       }
     })
     expect(wrapper.html()).toMatchInlineSnapshot(`
@@ -152,7 +152,7 @@ describe('MProTable组件', () => {
     ]
     const wrapper = mount({
       render() {
-        return <MProTable data={data} columns={columns} />
+        return <MTablePlus data={data} columns={columns} />
       }
     })
     expect(wrapper.html()).toMatchInlineSnapshot(`
@@ -200,7 +200,7 @@ describe('MProTable组件', () => {
     ]
     const wrapper = mount({
       render() {
-        return <MProTable data={data} columns={columns} pagination={{
+        return <MTablePlus data={data} columns={columns} pagination={{
           current: 1,
           total: 12,
           onChange: fn

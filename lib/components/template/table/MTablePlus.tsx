@@ -12,7 +12,7 @@ import { props } from './api';
 import { MParamLabel } from "../../../../types/common/MParamLabel";
 
 export default defineComponent({
-  name: 'MProTable',
+  name: 'MTablePlus',
   props,
   setup(props, { slots }) {
     const { pagination } = props

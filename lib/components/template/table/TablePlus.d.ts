@@ -4,19 +4,19 @@
  * @date 2022/10/21 22:22
  * @version v1.0.0
  *
- * @name m-pro-table
+ * @name m-table-plus
  * @description Form Plus component with shuimo-ui style.
  *              水墨组件的高级表格组件
  * @docUrl https://shuimo.janghood.com/pro/table#pro-table
- * @sourceSymbol MProTable
+ * @sourceSymbol MTablePlus
  *
  * Hello, humor
  */
 
-import { Pagination } from '../../../../types/components/MProTable';
+import { Pagination } from '../../../../types/components/MTablePlus';
 import { MParamLabel } from "../../../../types/common/MParamLabel";
 
-export declare type MProTableProps = {
+export declare type MTablePlusProps = {
   /**
    * @description 表格数据
    *

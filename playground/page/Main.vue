@@ -1,9 +1,9 @@
 <template>
-  <MProTable :data="data" :columns="columns">
+  <MTablePlus :data="data" :columns="columns">
     <template #name="{data, index}">
       {{data.name}}{{index}}
     </template>
-  </MProTable>
+  </MTablePlus>
 
 </template>
 

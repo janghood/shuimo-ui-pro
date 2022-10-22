@@ -11,8 +11,8 @@ import { MProTableProps}  from './ProTable';
 import { Column, Pagination } from '../../../../types/components/MProTable';
 
 export const props: WCOPO<MProTableProps> = {
-  data: { type: Array as WPropType<any>, required: true },
+  data: { type: Array as WPropType<any[]>, required: true },
   columns: { type: Array as WPropType<Column[]>, required: true },
-  pagination: { type: Object as WPropType<Pagination>, required: true },
+  pagination: { type: Object as WPropType<Pagination>, required: false, default: undefined },
   height: { type: String, required: false, default: '' }
 }

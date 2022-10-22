@@ -43,5 +43,5 @@ export declare type MProTableProps = {
    *
    * @default { current: undefined, total: 0, onChange: undefined, align: 'end' }
    */
-  pagination: Pagination
+  pagination?: Pagination
 }

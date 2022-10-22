@@ -1,15 +1,9 @@
 <template>
-  <span>{{ modelValue }}</span>
-  <MInputForm v-model="modelValue" :items="paramList">
-    <template #name="{data}">
-      <span>{{ data }}</span>
+  <MProTable :data="data" :columns="columns">
+    <template #name="{data, index}">
+      {{data.name}}{{index}}
     </template>
-  </MInputForm>
-  <MFormPlus v-model="modelValue" :items="paramList">
-    <template #name="{data}">
-      <span>{{ data }}</span>
-    </template>
-  </MFormPlus>
+  </MProTable>
 
 </template>
 
@@ -22,16 +16,17 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import { ref } from "vue";
-import MFormPlus from "../../lib/components/template/form/MFormPlus";
+import { Column } from '../../types/components/MProTable';
 
-const paramList = [
+const columns: Column[] = [
   { param: 'id', label: 'id' },
-  { param: 'name', label: 'name', isSlot: true },
-  { param: 'age', label: 'age' },
+  { param: 'name', label: '名称', isSlot: true }
 ]
 
-const modelValue = ref({ id: 1, name: '阿怪', age: 18 });
+const data = [
+  { id: 1, name: '壹' },
+  { id: 2, name: '贰' }
+]
 </script>
 
 <style lang="scss" scoped>

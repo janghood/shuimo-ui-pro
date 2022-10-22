@@ -51,7 +51,7 @@ export default defineComponent({
           <MTable data={data} height={height}>
             { tableColumns }
           </MTable>
-          <MPagination
+          { props?.pagination ? <MPagination
             style={{
               display: 'flex',
               justifyContent: pagination?.align || 'end'
@@ -59,7 +59,7 @@ export default defineComponent({
             current={innerCurrentPage.value}
             total={pagination?.total}
             onChange={currentChangeHandler}
-          />
+          /> : null }
         </>
       )
     }

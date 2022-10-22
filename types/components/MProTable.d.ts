@@ -12,7 +12,7 @@ export declare type Column = {
    * @type string
    * @default ''
    */
-  width: string
+  width?: string
   /**
    * @description 列param
    * @type string
@@ -63,7 +63,7 @@ export declare type Pagination = {
    * @type string
    * @default 'end'
    */
-  align: string
+  align?: string
   /**
    * @description 分页切换回调
    * @type function

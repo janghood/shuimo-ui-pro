@@ -9,6 +9,7 @@
 
 <p align="center">基于 <a href="https://github.com/janghood/shuimo-ui">Shuimo-UI</a> 的扩展版本组件库。</p>
 
+![npm](https://img.shields.io/npm/v/shuimo-ui-pro?color=%23c50315&style=flat-square)
 [![codecov](https://codecov.io/gh/janghood/shuimo-ui-pro/branch/master/graph/badge.svg?token=5SM2NGMNOI)](https://codecov.io/gh/janghood/shuimo-ui-pro)
 
 ## 简介（Introduction）

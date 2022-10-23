@@ -9,7 +9,7 @@
 
 
 import { mount } from "@vue/test-utils";
-import { describe, test, expect, vi } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import MTablePlus from '../../../../lib/components/template/table/MTablePlus';
 import { MParamLabel } from "../../../../types/common/MParamLabel";
 
@@ -36,17 +36,35 @@ describe('MTablePlus组件', () => {
     ]
     const wrapper = mount({
       render() {
-        return <MTablePlus data={data} columns={columns} />
+        return <MTablePlus data={data} columns={columns}/>
       }
     })
     expect(wrapper.findAll('.m-tbody .m-tr').length).toBe(2) // 包含头部行
     expect(wrapper.findAll('.m-th').length).toBe(2)
   })
 
-  test('列表 width',async ()=>{
-    const columns : MParamLabel[] = [
+  test('部分行不渲染', async () => {
+    const columns: MParamLabel[] = [
       { param: 'id', label: 'id' },
-      { param: 'name', label: '名称',props: { width: 100 } }
+      { param: 'name', label: '名称', visible: false }
+    ]
+
+    const data = [
+      { id: 1, name: '壹' },
+      { id: 2, name: '贰' }
+    ]
+    const wrapper = mount({
+      render() {
+        return <MTablePlus data={data} columns={columns}/>
+      }
+    })
+    expect(wrapper.findAll('.m-td').length).toBe(data.length)
+  })
+
+  test('列表 width', async () => {
+    const columns: MParamLabel[] = [
+      { param: 'id', label: 'id' },
+      { param: 'name', label: '名称', props: { width: 100 } }
     ]
     const data = [
       { id: 1, name: '壹' },
@@ -54,7 +72,7 @@ describe('MTablePlus组件', () => {
     ]
     const wrapper = mount({
       render() {
-        return <MTablePlus data={data} columns={columns} />
+        return <MTablePlus data={data} columns={columns}/>
       }
     })
     expect(wrapper.html()).toMatchInlineSnapshot(`
@@ -152,7 +170,7 @@ describe('MTablePlus组件', () => {
     ]
     const wrapper = mount({
       render() {
-        return <MTablePlus data={data} columns={columns} />
+        return <MTablePlus data={data} columns={columns}/>
       }
     })
     expect(wrapper.html()).toMatchInlineSnapshot(`
@@ -204,7 +222,7 @@ describe('MTablePlus组件', () => {
           current: 1,
           total: 12,
           onChange: fn
-        }} />
+        }}/>
       }
     })
     await wrapper.find('.m-page-next').trigger('click');

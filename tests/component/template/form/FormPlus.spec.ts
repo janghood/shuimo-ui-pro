@@ -12,7 +12,7 @@ import MFormPlus from '../../../../lib/components/template/form/MFormPlus';
 import { mount } from "@vue/test-utils";
 import { MForm, MFormItem, MInput } from "shuimo-ui";
 import { h, ref } from "vue";
-import { paramList, paramListWithType } from "../../../common/data/paramList";
+import { paramList, paramListWithType, paramListWithVisibleFalse } from "../../../common/data/paramList";
 import { MInputForm } from "../../../../lib";
 
 const mountFormPlus = (config: any) => {
@@ -79,6 +79,17 @@ describe('FormPlus组件', () => {
         </form>"
       `);
     })
+  })
+
+  test('部分不渲染',()=>{
+    const modelValue = ref({ id: 1, name: '阿怪', age: 18 });
+    const wrapper = mountFormPlus({
+      props: {
+        modelValue,
+        items: paramListWithVisibleFalse
+      }
+    })
+    expect(wrapper.findAll('.m-form-item').length).toBe(2);
   })
 
 

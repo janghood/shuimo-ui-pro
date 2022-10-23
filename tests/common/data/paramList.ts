@@ -25,3 +25,9 @@ export const paramListWithType = [
   { param: 'name', label: 'name',type:'input' },
   { param: 'age', label: 'age' },
 ]
+
+export const paramListWithVisibleFalse = [
+  { param: 'id', label: 'id' },
+  { param: 'name', label: 'name',visible:false },
+  { param: 'age', label: 'age' },
+]

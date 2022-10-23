@@ -7,9 +7,8 @@
  * Hello, humor
  */
 import { WCOPO, WPropType } from "shuimo-ui/lib/dependents/_types";
-import { MTablePlusProps}  from './TablePlus';
+import { MTablePlusProps, Pagination } from './TablePlus';
 import { MParamLabel } from "../../../../types/common/MParamLabel";
-import { Pagination } from '../../../../types/components/MTablePlus';
 
 export const props: WCOPO<MTablePlusProps> = {
   data: { type: Array as WPropType<any[]>, required: true },

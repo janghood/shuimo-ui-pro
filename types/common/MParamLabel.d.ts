@@ -21,6 +21,12 @@ export declare type MParamLabel = {
    */
   label: string,
   /**
+   * @description 是否显示，false的话将会直接不渲染
+   * @type boolean
+   * @default true
+   */
+  visible?: boolean,
+  /**
    * @description 默认插槽类型
    * @type 'text' | 'input'
    * @default text
@@ -38,7 +44,7 @@ export declare type MParamLabel = {
    * @default (value: any, row: any) => void
    */
   customRender?: (value: any, row: any) => void,
-/**
+  /**
    * @description 参数
    * @type string
    * @default ''

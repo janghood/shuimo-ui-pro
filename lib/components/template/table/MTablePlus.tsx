@@ -10,14 +10,16 @@ import { defineComponent, ref } from 'vue';
 import { MPagination, MTable, MTableColumn } from 'shuimo-ui';
 import { props } from './api';
 import { MParamLabel } from "../../../../types/common/MParamLabel";
+import useParamLabel from "../../../compositions/common/useParamLabel";
 
 export default defineComponent({
   name: 'MTablePlus',
   props,
   setup(props, { slots }) {
-    const { pagination } = props
-    const innerCurrentPage = ref(pagination?.current)
-    const tableColumns = props.columns?.map((col: MParamLabel) => {
+    const { pagination } = props;
+    const innerCurrentPage = ref(pagination?.current);
+    const { paramLabels } = useParamLabel(props.columns);
+    const tableColumns = paramLabels.map((col: MParamLabel) => {
       const { isSlot, customRender, ...colParams } = col;
       return (
         <MTableColumn param={colParams.param} label={colParams.label} width={colParams.props?.width}>
@@ -37,7 +39,7 @@ export default defineComponent({
           }}
         </MTableColumn>
       )
-    })
+    });
 
     const currentChangeHandler = (pn: number) => {
       innerCurrentPage.value = pn

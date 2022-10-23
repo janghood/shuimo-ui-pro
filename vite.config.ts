@@ -25,7 +25,7 @@ export default defineConfig({
     coverage: {
       all: true,
       include: ['lib/**'],
-      exclude: ['lib/index.ts', 'lib/**/*.d.ts'],
+      exclude: ['lib/index.ts', 'lib/**/*.d.ts','lib/dependents/*'],
       reporter: ['json', 'html']
     }
   }

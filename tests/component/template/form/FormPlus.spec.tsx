@@ -8,15 +8,15 @@
  */
 
 import { describe, expect, test } from 'vitest';
-import MFomPlus from '../../../../lib/components/template/form/MFormPlus';
+import MFormPlus from '../../../../lib/components/template/form/MFormPlus';
 import { mount } from "@vue/test-utils";
-import { MForm, MInput } from "shuimo-ui";
-import { ref } from "vue";
+import { MForm, MFormItem, MInput } from "shuimo-ui";
+import { h, ref } from "vue";
 import { paramList, paramListWithType } from "../../../common/data/paramList";
 import { MInputForm } from "../../../../lib";
 
 const mountFormPlus = (config: any) => {
-  return mount(MFomPlus, {
+  return mount(MFormPlus, {
     components: {
       MForm, MInput, MInputForm
     },
@@ -44,9 +44,43 @@ describe('FormPlus组件', () => {
         <div class=\\"m-form-item\\"><label for=\\"\\" class=\\"m-form-item__label\\">age</label>
           <div class=\\"m-form-item__content\\"><span>18</span></div>
         </div>
+        <!---->
       </form>"
     `);
   });
+
+  describe('插槽', () => {
+    test('默认default插槽', () => {
+      const modelValue = ref({ id: 1, name: '阿怪', age: 18, address: '浙江省杭州市' });
+      const wrapper = mountFormPlus({
+        props: {
+          modelValue,
+          items: paramList
+        },
+        slots: {
+          default:(data: { data: typeof modelValue }) =>
+            h(MFormItem, { label: 'address' }, data.data.value.address)
+        }
+      })
+      expect(wrapper.html()).toMatchInlineSnapshot(`
+        "<form class=\\"m-form\\">
+          <div class=\\"m-form-item\\"><label for=\\"\\" class=\\"m-form-item__label\\">id</label>
+            <div class=\\"m-form-item__content\\"><span>1</span></div>
+          </div>
+          <div class=\\"m-form-item\\"><label for=\\"\\" class=\\"m-form-item__label\\">name</label>
+            <div class=\\"m-form-item__content\\"><span>阿怪</span></div>
+          </div>
+          <div class=\\"m-form-item\\"><label for=\\"\\" class=\\"m-form-item__label\\">age</label>
+            <div class=\\"m-form-item__content\\"><span>18</span></div>
+          </div>
+          <div class=\\"m-form-item\\"><label for=\\"\\" class=\\"m-form-item__label\\">address</label>
+            <div class=\\"m-form-item__content\\">浙江省杭州市</div>
+          </div>
+        </form>"
+      `);
+    })
+  })
+
 
   test('input type', () => {
     const modelValue = ref({ id: 1, name: '阿怪', age: 18 });
@@ -75,6 +109,7 @@ describe('FormPlus组件', () => {
         <div class=\\"m-form-item\\"><label for=\\"\\" class=\\"m-form-item__label\\">age</label>
           <div class=\\"m-form-item__content\\"><span>18</span></div>
         </div>
+        <!---->
       </form>"
     `);
   })

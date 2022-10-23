@@ -2,9 +2,10 @@
  * @description 增强表单组件
  * @author 阿怪
  * @date 2022/10/21 05:00
- * @version v1.0.0
+ * @version v1.0.1
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
+ * v1.0.1 阿怪 添加默认插槽支持
  */
 import { defineComponent, ref } from "vue";
 import { props } from "./api";
@@ -12,6 +13,7 @@ import useFormPlusCommon from "./useFormPlusCommon";
 import { MForm, MFormItem, MInput } from "shuimo-ui";
 import useModelValue from "../../../compositions/common/useModelValue";
 import { MParamLabel } from "../../../../types/common/MParamLabel";
+import defaultSlotsGetter from "../../../dependents/render/defaultSlotsGetter";
 
 
 export default defineComponent({
@@ -35,7 +37,10 @@ export default defineComponent({
       }
     }
 
+
     return () => {
+      let defaultSlot = defaultSlotsGetter(slots, props.modelValue);
+
       const items = props.items.map(item => {
         return (
           <MFormItem label={item.label}>
@@ -43,8 +48,10 @@ export default defineComponent({
           </MFormItem>
         )
       })
-
-      return (<MForm>{items}</MForm>)
+      return (<MForm>
+        {items}
+        {defaultSlot}
+      </MForm>)
     }
   }
 })

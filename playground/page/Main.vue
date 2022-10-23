@@ -1,9 +1,17 @@
 <template>
-  <MTablePlus :data="data" :columns="columns">
-    <template #name="{data, index}">
-      {{data.name}}{{index}}
+  <MFormPlus :items="columns" v-model="modelValue">
+    <template #default="{data}">
+      <m-form-item label="地址">{{ data.address }}</m-form-item>
     </template>
-  </MTablePlus>
+  </MFormPlus>
+  <MInputForm :items="columns" v-model="modelValue">
+    <template>
+      <m-form-item label="地址">
+        <m-input v-model="modelValue.address"/>
+      </m-form-item>
+      <m-form-item label="地址">{{ modelValue.address }}</m-form-item>
+    </template>
+  </MInputForm>
 
 </template>
 
@@ -17,16 +25,15 @@
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
 import { MParamLabel } from "../../types/common/MParamLabel";
+import { ref } from "vue";
+import MInputForm from "../../lib/components/template/form/InputForm/MInputForm";
 
 const columns: MParamLabel[] = [
   { param: 'id', label: 'id' },
-  { param: 'name', label: '名称', isSlot: true }
+  { param: 'name', label: '名称' }
 ]
 
-const data = [
-  { id: 1, name: '壹' },
-  { id: 2, name: '贰' }
-]
+const modelValue = ref({ id: 1, name: '阿怪', age: 18, address: '浙江省杭州市' });
 </script>
 
 <style lang="scss" scoped>

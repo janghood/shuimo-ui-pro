@@ -85,6 +85,7 @@ describe('inputForm组件', () => {
             </div>
           </div>
         </div>
+        <!---->
       </form>"
     `);
   })
@@ -129,6 +130,7 @@ describe('inputForm组件', () => {
             </div>
           </div>
         </div>
+        <!---->
       </form>"
     `);
   })

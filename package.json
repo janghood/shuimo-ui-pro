@@ -23,10 +23,10 @@
   ],
   "types": "types/shuimo-ui-pro.d.ts",
   "main": "./dist/shuimo-ui-pro.umd.js",
-  "module": "./dist/shuimo-ui-pro.es.js",
+  "module": "./dist/shuimo-ui-pro.mjs",
   "exports": {
     ".": {
-      "import": "./dist/shuimo-ui-pro.es.js",
+      "import": "./dist/shuimo-ui-pro.mjs",
       "require": "./dist/shuimo-ui-pro.umd.js"
     },
     "./*": "./*"

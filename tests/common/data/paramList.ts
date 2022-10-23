@@ -19,3 +19,9 @@ export const paramListWithSlot = [
   { param: 'name', label: 'name',isSlot:true },
   { param: 'age', label: 'age' },
 ]
+
+export const paramListWithType = [
+  { param: 'id', label: 'id' },
+  { param: 'name', label: 'name',type:'input' },
+  { param: 'age', label: 'age' },
+]

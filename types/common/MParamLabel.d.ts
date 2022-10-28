@@ -46,7 +46,7 @@ declare type BaseParamLabel = {
   props?: Record<string, any>
 }
 
-declare type MParamLabel = {
+export declare type MParamLabel = {
   /**
    * @description 参数key
    * @type string

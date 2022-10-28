@@ -21,4 +21,4 @@ export declare const MInputForm: typeof inputForm;
 export declare const MTablePlus: typeof tablePlus
 
 
-export { MParamLabel } from "../common/MParamLabel";
+export * from "../common/MParamLabel";

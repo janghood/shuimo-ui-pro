@@ -7,13 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-export declare type MParamLabel = {
-  /**
-   * @description 参数key
-   * @type string
-   * @default ''
-   */
-  param: string,
+declare type BaseParamLabel = {
   /**
    * @description 参数label显示
    * @type string
@@ -51,3 +45,14 @@ export declare type MParamLabel = {
    */
   props?: Record<string, any>
 }
+
+declare type MParamLabel = {
+  /**
+   * @description 参数key
+   * @type string
+   * @default ''
+   */
+  param: string,
+} & BaseParamLabel
+
+export declare type MParamLabelArr<T> = Array<{ param: keyof T } & BaseParamLabel>

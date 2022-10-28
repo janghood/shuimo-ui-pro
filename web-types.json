@@ -1,0 +1,36 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
+  "name": "shuimo-ui-pro",
+  "version": "0.0.1-beta.2",
+  "contributions": {
+    "html": {
+      "types-syntax": "typescript",
+      "description-markup": "markdown",
+      "tags": [
+        {
+          "name": "m-form-plus",
+          "source": {
+            "symbol": "MFormPlus"
+          },
+          "doc-url": "https://shuimo.janghood.com"
+        },
+        {
+          "name": "m-input-form",
+          "source": {
+            "symbol": "MInputForm"
+          },
+          "doc-url": "https://shuimo.janghood.com"
+        },
+        {
+          "name": "m-table-plus",
+          "source": {
+            "symbol": "MTablePlus"
+          },
+          "doc-url": "https://shuimo.janghood.com"
+        }
+      ]
+    }
+  },
+  "framework": "vue",
+  "default-icon": "./icons/logo.svg"
+}

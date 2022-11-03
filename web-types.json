@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/JetBrains/web-types/master/schema/web-types.json",
   "name": "shuimo-ui-pro",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.1-beta.3",
   "contributions": {
     "html": {
       "types-syntax": "typescript",
@@ -12,21 +12,97 @@
           "source": {
             "symbol": "MFormPlus"
           },
-          "doc-url": "https://shuimo.janghood.com"
+          "doc-url": "https://shuimo.janghood.com/pro/form#form-plus",
+          "attributes": [
+            {
+              "name": "modelValue",
+              "description": "data value\n表单参数",
+              "value": {
+                "type": "any",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "items",
+              "description": "items\n表单列表",
+              "value": {
+                "type": "MParamLabel[]",
+                "default": "[]",
+                "kind": "expression"
+              }
+            }
+          ]
         },
         {
           "name": "m-input-form",
           "source": {
             "symbol": "MInputForm"
           },
-          "doc-url": "https://shuimo.janghood.com"
+          "doc-url": "https://shuimo.janghood.com/pro/form#input-form",
+          "attributes": [
+            {
+              "name": "modelValue",
+              "description": "data value\n表单参数",
+              "value": {
+                "type": "any",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "items",
+              "description": "items\n表单列表",
+              "value": {
+                "type": "MParamLabel[]",
+                "default": "[]",
+                "kind": "expression"
+              }
+            }
+          ]
         },
         {
           "name": "m-table-plus",
           "source": {
             "symbol": "MTablePlus"
           },
-          "doc-url": "https://shuimo.janghood.com"
+          "doc-url": "https://shuimo.janghood.com/pro/table#pro-table",
+          "attributes": [
+            {
+              "name": "data",
+              "description": "表格数据",
+              "value": {
+                "type": "any[]",
+                "default": "[]",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "columns",
+              "description": "表格列",
+              "value": {
+                "type": "MParamLabel[]",
+                "default": "[]",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "height",
+              "description": "表格高度",
+              "value": {
+                "type": "string",
+                "default": "",
+                "kind": "expression"
+              }
+            },
+            {
+              "name": "pagination",
+              "description": "分页相关内容",
+              "value": {
+                "type": "Pagination",
+                "default": "{current: undefined, total: 0, onChange: undefined, align: 'end'}",
+                "kind": "expression"
+              }
+            }
+          ]
         }
       ]
     }

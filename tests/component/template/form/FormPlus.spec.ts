@@ -12,7 +12,12 @@ import MFormPlus from '../../../../lib/components/template/form/MFormPlus';
 import { mount } from "@vue/test-utils";
 import { MForm, MFormItem, MInput } from "shuimo-ui";
 import { h, ref } from "vue";
-import { paramList, paramListWithType, paramListWithVisibleFalse } from "../../../common/data/paramList";
+import {
+  paramList,
+  paramListWithProps,
+  paramListWithType,
+  paramListWithVisibleFalse
+} from "../../../common/data/paramList";
 import { MInputForm } from "../../../../lib";
 
 const mountFormPlus = (config: any) => {
@@ -58,7 +63,7 @@ describe('FormPlus组件', () => {
           items: paramList
         },
         slots: {
-          default:(data: { data: typeof modelValue }) =>
+          default: (data: { data: typeof modelValue }) =>
             h(MFormItem, { label: 'address' }, data.data.value.address)
         }
       })
@@ -81,7 +86,7 @@ describe('FormPlus组件', () => {
     })
   })
 
-  test('部分不渲染',()=>{
+  test('部分不渲染', () => {
     const modelValue = ref({ id: 1, name: '阿怪', age: 18 });
     const wrapper = mountFormPlus({
       props: {
@@ -119,6 +124,50 @@ describe('FormPlus组件', () => {
         </div>
         <div class=\\"m-form-item\\"><label for=\\"\\" class=\\"m-form-item__label\\">age</label>
           <div class=\\"m-form-item__content\\"><span>18</span></div>
+        </div>
+        <!---->
+      </form>"
+    `);
+  })
+
+
+  test('input props', () => {
+    const modelValue = ref({ id: 1, name: '阿怪', age: 18, password: '123456' });
+    const wrapper = mountFormPlus({
+      props: {
+        modelValue,
+        items: paramListWithProps
+      }
+    })
+    expect(wrapper.html()).toMatchInlineSnapshot(`
+      "<form class=\\"m-form\\">
+        <div class=\\"m-form-item\\"><label for=\\"\\" class=\\"m-form-item__label\\">id</label>
+          <div class=\\"m-form-item__content\\"><span>1</span></div>
+        </div>
+        <div class=\\"m-form-item\\"><label for=\\"\\" class=\\"m-form-item__label\\">name</label>
+          <div class=\\"m-form-item__content\\">
+            <div class=\\"m-border m-input\\">
+              <div class=\\"m-border-main\\"><input type=\\"text\\" class=\\"m-input-inner\\" placeholder=\\"\\"></div>
+              <div class=\\"m-border-line m-border-top-line\\"></div>
+              <div class=\\"m-border-line m-border-left-line\\"></div>
+              <div class=\\"m-border-line m-border-right-line\\"></div>
+              <div class=\\"m-border-line m-border-bottom-line\\"></div>
+            </div>
+          </div>
+        </div>
+        <div class=\\"m-form-item\\"><label for=\\"\\" class=\\"m-form-item__label\\">age</label>
+          <div class=\\"m-form-item__content\\"><span>18</span></div>
+        </div>
+        <div class=\\"m-form-item\\"><label for=\\"\\" class=\\"m-form-item__label\\">password</label>
+          <div class=\\"m-form-item__content\\">
+            <div class=\\"m-border m-input\\">
+              <div class=\\"m-border-main\\"><input type=\\"password\\" class=\\"m-input-inner\\" placeholder=\\"\\"></div>
+              <div class=\\"m-border-line m-border-top-line\\"></div>
+              <div class=\\"m-border-line m-border-left-line\\"></div>
+              <div class=\\"m-border-line m-border-right-line\\"></div>
+              <div class=\\"m-border-line m-border-bottom-line\\"></div>
+            </div>
+          </div>
         </div>
         <!---->
       </form>"

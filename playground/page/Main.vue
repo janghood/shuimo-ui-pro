@@ -1,13 +1,17 @@
 <template>
-
-
-  <m-table-plus :data="modelValue" :columns="columns">
-    <m-table-column param="operator" label="操作">
-      <template #default="{data}">
-        <span>{{ data.age }}-{{ data.address }}</span>
-      </template>
-    </m-table-column>
-  </m-table-plus>
+  <MFormPlus :items="columns" v-model="modelValue">
+    <template #default="{data}">
+      <m-form-item label="地址">{{ data.address }}</m-form-item>
+    </template>
+  </MFormPlus>
+  <MInputForm :items="columns" v-model="modelValue">
+    <template>
+      <m-form-item label="地址">
+        <m-input v-model="modelValue.address"/>
+      </m-form-item>
+      <m-form-item label="地址">{{ modelValue.address }}</m-form-item>
+    </template>
+  </MInputForm>
 
 </template>
 
@@ -22,13 +26,15 @@
  */
 import { MParamLabel } from "../../types/common/MParamLabel";
 import { ref } from "vue";
+import MInputForm from "../../lib/components/template/form/InputForm/MInputForm";
 
 const columns: MParamLabel[] = [
   { param: 'id', label: 'id' },
-  { param: 'name', label: '名称' }
+  { param: 'name', label: '名称' },
+  { param: 'password', label: '密码', props: { type: 'password' } },
 ]
 
-const modelValue = ref([{ id: 1, name: '阿怪', age: 18, address: '浙江省杭州市' }]);
+const modelValue = ref({ id: 1, name: '阿怪', age: 18, address: '浙江省杭州市', password: '' });
 </script>
 
 <style lang="scss" scoped>

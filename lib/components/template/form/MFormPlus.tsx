@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { defineComponent, ref } from "vue";
+import { defineComponent, h, ref } from "vue";
 import { props } from "./api";
 import useFormPlusCommon from "./useFormPlusCommon";
 import { MForm, MFormItem, MInput } from "shuimo-ui";
@@ -31,7 +31,11 @@ export default defineComponent({
     const getFormItem = (item: MParamLabel) => {
       switch (item.type) {
         case 'input':
-          return <MInput v-model={data.value[item.param]}/>;
+          return h(MInput, {
+            modelValue: data.value[item.param],
+            ...item.props,
+            'onUpdate:modelValue': (value: any) => {data.value[item.param] = value}
+          });
         default:
           return <span>{data.value[item.param]}</span>
       }

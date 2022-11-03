@@ -18,7 +18,6 @@ import { MParamLabel } from "../../../../types/common/MParamLabel";
 export declare type MTablePlusProps = {
   /**
    * @description 表格数据
-   *
    * @type any
    * @default []
    */
@@ -33,14 +32,12 @@ export declare type MTablePlusProps = {
   /**
    * @description 表格高度
    * @type string
-   *
    * @default ''
    */
   height?: string
   /**
    * @description 分页相关内容
    * @type Pagination
-   *
    * @default { current: undefined, total: 0, onChange: undefined, align: 'end' }
    */
   pagination?: Pagination

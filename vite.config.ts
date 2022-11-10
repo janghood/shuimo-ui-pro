@@ -11,7 +11,7 @@ export default defineConfig({
       entry: 'lib/index.ts'
     },
     rollupOptions: {
-      external: ['vue']
+      external: ['vue', 'shuimo-ui']
     }
   },
   server: { port: 8725 },
@@ -25,7 +25,7 @@ export default defineConfig({
     coverage: {
       all: true,
       include: ['lib/**'],
-      exclude: ['lib/index.ts', 'lib/**/*.d.ts','lib/dependents/*'],
+      exclude: ['lib/index.ts', 'lib/**/*.d.ts', 'lib/dependents/*'],
       reporter: ['json', 'html']
     }
   }

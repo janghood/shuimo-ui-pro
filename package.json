@@ -34,7 +34,7 @@
   "style": "dist/style.css",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --mode npm",
+    "build": "vite build",
     "publish": "npm publish --access public",
     "test": "vitest",
     "test:update": "vitest -u",

@@ -9,6 +9,7 @@
 import formPlus from '../../lib/components/template/form/MFormPlus';
 import inputForm from '../../lib/components/template/form/InputForm/MInputForm';
 import tablePlus from '../../lib/components/template/table/MTablePlus';
+import { MTablePlusProps } from '../../lib/components/template/table/TablePlus';
 
 
 // template
@@ -18,7 +19,7 @@ export declare const MFormPlus: typeof formPlus;
 export declare const MInputForm: typeof inputForm;
 
 // table
-export declare const MTablePlus: typeof tablePlus
-
+export declare const MTablePlus: typeof tablePlus;
+export declare const MTableProps: MTablePlusProps;
 
 export * from "../common/MParamLabel";

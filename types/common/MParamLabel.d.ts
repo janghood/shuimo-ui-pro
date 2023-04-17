@@ -22,10 +22,10 @@ declare type BaseParamLabel = {
   visible?: boolean,
   /**
    * @description 默认插槽类型
-   * @type 'text' | 'input'
+   * @type 'text' | 'input' | 'number' | 'boolean'
    * @default text
    */
-  type?: 'text' | 'input',
+  type?: 'text' | 'input' | 'number' | 'boolean',
   /**
    * @description 是否是插槽
    * @type boolean

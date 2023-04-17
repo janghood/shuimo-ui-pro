@@ -9,7 +9,7 @@
 import { defineComponent, h, ref } from "vue";
 import { props } from "./api";
 import useFormPlusCommon from "./useFormPlusCommon";
-import { MForm, MFormItem, MInput } from "shuimo-ui";
+import { MCheckbox, MForm, MFormItem, MInput, MInputNumber } from 'shuimo-ui';
 import useModelValue from "../../../compositions/common/useModelValue";
 import { MParamLabel } from "../../../../types/common/MParamLabel";
 import defaultSlotsGetter from "../../../dependents/render/defaultSlotsGetter";
@@ -29,13 +29,19 @@ export default defineComponent({
     useModelValue(data, props);
 
     const getFormItem = (item: MParamLabel) => {
-      switch (item.type) {
+      const props = {
+        modelValue: data.value[item.param],
+        ...item.props,
+        'onUpdate:modelValue': (value: any) => {data.value[item.param] = value}
+      }
+
+        switch (item.type) {
         case 'input':
-          return h(MInput, {
-            modelValue: data.value[item.param],
-            ...item.props,
-            'onUpdate:modelValue': (value: any) => {data.value[item.param] = value}
-          });
+          return h(MInput, props);
+        case 'number':
+          return h(MInputNumber,props);
+        case 'boolean':
+          return h(MCheckbox,props);
         default:
           return <span>{data.value[item.param]}</span>
       }

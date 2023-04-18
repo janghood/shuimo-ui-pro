@@ -6,7 +6,7 @@
  *
  * 公司的业务千篇一律，复杂的代码好几百行。
  */
-import { defineJhConfig } from '@janghood/api-extractor';
+import { defineJhConfig } from '@janghood/config';
 
 const firstUpperCase = (str: string) => {
   return `${str[0].toUpperCase()}${str.slice(1, str.length)}`;

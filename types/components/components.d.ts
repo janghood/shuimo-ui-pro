@@ -20,6 +20,6 @@ export declare const MInputForm: typeof inputForm;
 
 // table
 export declare const MTablePlus: typeof tablePlus;
-export declare const MTableProps: MTablePlusProps;
+export declare const MTablePropsType: MTablePlusProps;
 
 export * from "../common/MParamLabel";
